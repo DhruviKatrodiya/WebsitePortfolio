@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Senior Software Developer specializing in C#, ASP.NET Core, Azure Functions, and Angular. 4.5 years building scalable web apps, APIs, and cloud integrations." />
+  <title>ABC — Senior Software Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Decorative background -->
+  <div class="aurora" aria-hidden="true">
+    <span class="aurora__blob aurora__blob--1"></span>
+    <span class="aurora__blob aurora__blob--2"></span>
+    <span class="aurora__blob aurora__blob--3"></span>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <nav class="nav__links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="btn btn--mini" id="navResume">Resume</button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle color theme">
+          <span class="theme-toggle__icon">🌙</span>
+        </button>
+        <button class="nav__burger" id="navBurger" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="container hero__inner">
+        <p class="hero__eyebrow reveal">👋 Hello, I'm</p>
+        <h1 class="hero__title reveal" data-name>ABC</h1>
+        <h2 class="hero__subtitle reveal">Senior Software Developer</h2>
+        <p class="hero__tagline reveal">
+          I design, build, and maintain scalable web applications, APIs, and cloud
+          integrations across the Microsoft technology stack — turning complex
+          problems into reliable, high-quality software.
+        </p>
+        <div class="hero__stats reveal">
+          <div class="stat"><span class="stat__num" data-count="4.5">0</span><span class="stat__label">Years Experience</span></div>
+          <div class="stat"><span class="stat__num" data-count="30" data-suffix="+">0</span><span class="stat__label">Azure Functions Built</span></div>
+          <div class="stat"><span class="stat__num" data-count="9" data-suffix="+">0</span><span class="stat__label">Enterprise Projects</span></div>
+        </div>
+        <div class="hero__cta reveal">
+          <a href="#projects" class="btn btn--primary">View My Work</a>
+          <button class="btn btn--ghost" id="heroResume">⬇ Download PDF</button>
+        </div>
+        <div class="hero__tech reveal">
+          <span>C#</span><span>ASP.NET Core</span><span>Azure</span>
+          <span>Angular</span><span>SQL Server</span><span>Docker</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container">
+        <p class="section__eyebrow reveal"><span class="section__eyebrow-ic">👤</span> About</p>
+        <h2 class="section__title reveal">A bit about me</h2>
+        <div class="about">
+          <div class="about__text reveal">
+            <p>
+              I'm a Senior Software Developer with <strong>4.5 years of experience</strong>
+              in the Microsoft technology stack. I've worked across two organizations —
+              <strong>Bigscal Technologies</strong> and <strong>Akkomplish Consulting
+              Services</strong> — designing and maintaining web applications, APIs,
+              middleware solutions, and cloud-based integrations.
+            </p>
+            <p>
+              My recent work spans Azure Functions for large-scale data synchronization,
+              payment gateway integrations, enterprise application enhancements, API
+              optimization, Docker deployments, and untangling complex system integration
+              issues. I also care about UI/UX, application performance, and end-to-end testing.
+            </p>
+            <p>
+              I'm continuously learning — recently picking up hands-on experience with
+              <strong>Docker</strong>, <strong>Claude AI</strong> for development and
+              documentation, <strong>Stitch</strong> for UI/UX design, and <strong>Moq</strong>
+              for unit testing. I'm passionate about building scalable, reliable applications.
+            </p>
+          </div>
+          <aside class="about__card reveal">
+            <h3>🎓 Education</h3>
+            <div class="edu">
+              <p class="edu__degree">M.Sc. — Information &amp; Communication Technology</p>
+              <p class="edu__meta">Veer Narmad South Gujarat University · Sep 2021 – Jul 2023</p>
+            </div>
+            <div class="edu">
+              <p class="edu__degree">Bachelor of Computer Application</p>
+              <p class="edu__meta">Veer Narmad South Gujarat University · Aug 2018 – Apr 2021</p>
+            </div>
+            <p class="edu__loc">📍 Surat, Gujarat, India</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section section--alt" id="experience">
+      <div class="container">
+        <p class="section__eyebrow reveal"><span class="section__eyebrow-ic">💼</span> Experience</p>
+        <h2 class="section__title reveal">Where I've worked</h2>
+        <div class="timeline" id="timeline"></div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <div class="container">
+        <p class="section__eyebrow reveal"><span class="section__eyebrow-ic">🚀</span> Projects</p>
+        <h2 class="section__title reveal">Things I've built</h2>
+        <div class="projects" id="projectsGrid"></div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section section--alt" id="skills">
+      <div class="container">
+        <p class="section__eyebrow reveal"><span class="section__eyebrow-ic">🛠️</span> Skills</p>
+        <h2 class="section__title reveal">My toolkit</h2>
+        <div class="skills" id="skillsGrid"></div>
+        <h3 class="skills__subhead reveal">Recently Acquired</h3>
+        <div class="skills__new reveal" id="newSkills"></div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section--contact" id="contact">
+      <div class="container contact">
+        <p class="section__eyebrow reveal"><span class="section__eyebrow-ic">✉️</span> Contact</p>
+        <h2 class="section__title reveal">Let's work together</h2>
+        <p class="contact__lead reveal">
+          I'm looking for opportunities to leverage my technical expertise, take on greater
+          responsibilities, and keep growing. If you have an interesting role or project,
+          I'd love to hear from you.
+        </p>
+        <div class="contact__actions reveal">
+          <a href="mailto:hello@example.com" class="btn btn--primary" id="contactEmail">Say Hello 👋</a>
+          <button class="btn btn--ghost" id="contactResume">⬇ Download PDF Resume</button>
+        </div>
+        <div class="contact__socials reveal" id="socials"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>&copy; <span id="year"></span> <span data-name>ABC</span>. Built with care.</span>
+      <a href="#home" class="footer__top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <!-- Resume preview modal -->
+  <div class="resume-modal" id="resumeModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Resume preview">
+    <div class="resume-modal__backdrop" data-close></div>
+    <div class="resume-modal__dialog">
+      <div class="resume-modal__bar">
+        <div class="resume-modal__title">
+          <span class="resume-modal__dot"></span> Resume Preview
+        </div>
+        <div class="resume-modal__actions">
+          <button class="btn btn--primary btn--sm" id="resumeDownload">⬇ Download PDF</button>
+          <button class="btn btn--ghost btn--sm" id="resumePrint">🖨 Print</button>
+          <button class="resume-modal__close" data-close aria-label="Close preview">✕</button>
+        </div>
+      </div>
+      <div class="resume-modal__scroll">
+        <div class="resume" id="resumePaper"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+</html>

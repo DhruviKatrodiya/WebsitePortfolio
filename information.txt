@@ -1,0 +1,171 @@
+### Professional summary
+Hello, my name is ABC, and I have 4.5 years of experience as a Senior Software Developer in the Microsoft technology stack.
+
+During my career, I have worked with two organizations: Bigscale Technologies and Akkomplish Consulting Services. I have extensive experience in designing, developing, and maintaining web applications, APIs, middleware solutions, and cloud-based integrations using C#, ASP.NET Core, Web APIs, SQL Server, Azure Functions, and Angular.
+
+In my recent projects, I have been involved in developing Azure Functions for large-scale data synchronization, implementing payment gateway integrations, enhancing enterprise applications, creating and optimizing APIs, Docker deployments, and troubleshooting complex system integration issues. I have also worked on UI/UX improvements, application performance optimization, and end-to-end testing to ensure high-quality software delivery.
+
+Apart from development, I continuously focus on learning new technologies and improving my skills. Recently, I have gained hands-on experience with Docker, Claude AI for development and documentation, Stitch for UI/UX design, and Moq for unit testing and code coverage improvement.
+
+I am passionate about building scalable and reliable applications, solving challenging technical problems, and contributing to the success of the team and organization. I am now looking for an opportunity where I can leverage my technical expertise, take on greater responsibilities, and continue growing as a software professional.
+
+
+### EDUCATION
+Veer Narmad South Gujarat University, Surat,Gujarat, India.
+Bachelor of Computer Application (August 2018 –April 2021)
+Master of Science - Information andCommunication Technology (September 2021 –July 2023)
+
+## PROFESSIONAL EXPERIENCE - Bigscal Technologies PVT. LTD. (2.5 years, join Jan 2023 - Dec 2024 at Surat)
+
+### Supplier Portal
+* Developed and maintained RESTful Web APIs for the Supplier Portal, enabling seamless communication and data exchange between suppliers and backend systems.
+* Collaborated with cross-functional teams to integrate Supplier Portal APIs with existing enterprise applications, automating business workflows and improving operational efficiency.
+* Participated in code reviews and quality assurance activities to ensure API reliability, scalability, security, and performance.
+* Assisted in troubleshooting and resolving application issues, ensuring smooth business operations.
+
+### GIFT City – Utilities Management System
+* Maintained and enhanced utility management applications supporting power and other utility services.
+* Developed and supported functionalities including meter management, tax invoice generation, demand estimation, payment processing, and reporting.
+* Worked extensively on the Other Utilities module, implementing user management and role-based access control features.
+* Developed workflows for application approvals, technical sanction generation and approval, demand estimation, and tax invoice approval processes.
+* Implemented and maintained offline payment transaction processing and reconciliation functionalities.
+* Collaborated with stakeholders to gather requirements and deliver system enhancements aligned with business needs.
+
+### Fire Safety Management System (GIFT City)
+* Led the development team for the Fire Safety Management Project, overseeing planning, execution, and timely delivery of project milestones.
+* Developed and implemented fire safety workflows and compliance-related processes to support regulatory requirements.
+* Coordinated with business stakeholders and attended project review meetings to ensure successful project execution.
+* Managed project timelines, task allocation, and resource utilization to achieve project objectives.
+* Developed and enhanced inspection scheduling and approval modules to streamline fire safety operations.
+* Ensured the completion of project deliverables within established deadlines while maintaining high-quality standards.
+
+# Technologies Used for Experienced Projects:
+
+* .NET Core Web API with an N-tier layeredarchitecture, using a MySQL Database and JSON WebTokens (JWT) for authentication.
+
+# Commonly used Third-party services:
+
+* CCAvenue-payment gateway
+
+
+## Professional Experience – Akkomplish Consulting Services (2 Years, join Jun 2025 at Ahemdabad)
+
+### BCPortal
+
+* Implemented attachment management functionality for Purchase Order Lines and Purchase Order Details.
+* Enhanced Resource Management module with UI improvements and usability optimizations.
+* Modified API request parameters and standardized header naming conventions across modules.
+* Performed end-to-end testing and validation of Purchase Order workflows to ensure system stability and data accuracy.
+
+### CousinMiddleware
+
+* Designed and developed 30+ Azure Functions for data synchronization, including modules ranging from GP_Addresses to GP_PricingPromoFree.
+* Enhanced middleware architecture by updating domain models and Azure Function implementations.
+* Performed database migrations and schema updates to support evolving business requirements.
+* Resolved data type inconsistencies between source systems, domain models, and APIs.
+* Conducted comprehensive testing and validation of Azure Functions to ensure reliable data retrieval and synchronization.
+* Troubleshot and fixed data synchronization issues, improving integration reliability and performance.
+
+### Ekkaam
+
+* Enhanced Stripe payment integration by implementing and testing custom payment processing workflows.
+* Created a comprehensive User Manual using Claude AI to support onboarding and product adoption.
+* Conducted market research across multiple rental industry verticals in the United States, identifying key features and opportunities for platform enhancement.
+* Analyzed leading rental marketplace applications and documented feature recommendations for future product development.
+* Designed UX/UI prototypes for User, Owner, and Super Admin portals using Stitch (Google), contributing to improved user experience and interface consistency.
+* Collaborated on product feature planning based on user-centric research and competitive analysis.
+
+### EmailManagementSystem
+
+* Developed and enhanced APIs for Email Configuration, Project Management, and Markup Setup modules.
+* Implemented Email Configuration Validation APIs to improve configuration accuracy and reliability.
+* Added API support for retrieving Markup information by Project ID.
+* Modified and optimized Log4Net configurations for improved application monitoring and diagnostics.
+* Performed Docker-based deployment and environment configuration for application hosting.
+* Investigated and resolved API integration issues, improving application stability and performance.
+
+### VendorManagement
+
+* Diagnosed and resolved user registration workflow issues.
+* Managed assembly reference updates and dependency resolution to ensure successful application builds and deployments.
+
+### Cross-Project Contributions
+
+* Investigated and resolved API-related issues across multiple enterprise applications.
+* Performed debugging, root-cause analysis, and issue resolution for integration and synchronization problems.
+* Improved system reliability through proactive testing, validation, and defect resolution.
+
+---
+
+## Independent Learning & Innovation
+
+### Quality Assurance & Testing
+
+* Self-learned and implemented unit testing practices using the Moq framework.
+* Explored strategies for improving code coverage and application quality through automated testing.
+
+### Frontend Development
+
+* Independently researched and implemented Angular Walkthrough Wizard functionality without prior experience.
+* Improved user onboarding experience through guided application workflows.
+
+### UX/UI Design
+
+* Designed UI concepts and user experience flows using Stitch (Google).
+* Contributed design ideas and wireframes despite having no prior professional design background.
+
+---
+
+## Technical Skills
+
+### Backend Technologies
+
+* C#
+* ASP.NET Core Web API
+* Azure Functions
+* Entity Framework
+* REST APIs
+* SQL Server
+
+### Frontend Technologies
+
+* Angular
+* HTML5
+* CSS3
+* JavaScript / TypeScript
+
+### Cloud & DevOps
+
+* Microsoft Azure
+* Azure Functions
+* Docker
+* CI/CD Concepts
+
+### Testing & Quality
+
+* Unit Testing
+* Moq Framework
+* API Testing
+* Debugging & Troubleshooting
+
+### AI & Productivity Tools
+
+* Claude AI (Documentation, Development Assistance)
+* Stitch with Google (UX/UI Design & Prototyping)
+
+### Tools & Platforms
+
+* Git
+* GitHub / Azure DevOps
+* Postman
+* Log4Net
+
+---
+
+## Newly Acquired Skills
+
+* Docker for containerization and application deployment.
+* Claude AI for technical documentation, coding assistance, and productivity enhancement.
+* Stitch with Google for UX/UI design, wireframing, and prototyping.
+* Moq Framework for unit testing and code quality improvement.
+* Angular Walkthrough Wizard implementation and user onboarding flows.
