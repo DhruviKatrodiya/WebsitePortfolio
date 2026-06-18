@@ -1,5 +1,5 @@
 ### Professional summary
-Hello, my name is ABC, and I have 4.5 years of experience as a Senior Software Developer in the Microsoft technology stack.
+Hello, my name is Dhruvi Katrodiya, and I have 4.5 years of experience as a Senior Software Developer in the Microsoft technology stack.
 
 During my career, I have worked with two organizations: Bigscale Technologies and Akkomplish Consulting Services. I have extensive experience in designing, developing, and maintaining web applications, APIs, middleware solutions, and cloud-based integrations using C#, ASP.NET Core, Web APIs, SQL Server, Azure Functions, and Angular.
 
