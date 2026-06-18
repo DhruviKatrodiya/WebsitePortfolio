@@ -85,6 +85,7 @@ h1, h2, h3, .nav__logo { font-family: "Sora", "Inter", sans-serif; }
 }
 .nav--scrolled { border-bottom-color: var(--border); }
 .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+.nav__brand { display: none; font-family: "Sora", sans-serif; font-weight: 800; font-size: 1.05rem; letter-spacing: -0.3px; white-space: nowrap; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 .nav__links { display: flex; gap: 30px; }
 .nav__links a { color: var(--text-dim); font-size: 0.92rem; font-weight: 500; position: relative; transition: color 0.2s; }
 .nav__links a:hover { color: var(--text); }
@@ -288,13 +289,39 @@ h1, h2, h3, .nav__logo { font-family: "Sora", "Inter", sans-serif; }
 /* ===== Responsive ===== */
 @media (max-width: 820px) {
   .about { grid-template-columns: 1fr; }
+  .nav__brand { display: block; }
   .nav__links { position: fixed; inset: 70px 0 auto 0; flex-direction: column; gap: 0; background: var(--bg-alt); border-bottom: 1px solid var(--border); transform: translateY(-150%); transition: transform 0.35s ease; padding: 12px 0; }
   .nav__links.open { transform: translateY(0); }
   .nav__links a { padding: 14px 24px; }
   .nav__burger { display: flex; }
   .hero__stats { gap: 28px; }
+  .section { padding: 90px 0; }
+  .section--contact { padding: 100px 0; }
   .resume { padding: 32px; font-size: 12px; }
   .resume__skills-grid, .resume__two { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 540px) {
+  .container { padding: 0 18px; }
+  .section { padding: 64px 0; }
+  .section--contact { padding: 80px 0; }
+  .section__title { margin-bottom: 32px; }
+
+  .hero { min-height: auto; padding: 110px 0 70px; }
+  .hero__inner { padding-top: 0; }
+  .hero__stats { gap: 18px 30px; margin: 30px 0; }
+  .stat__num { font-size: 1.85rem; }
+  .hero__cta { gap: 12px; }
+  .hero__cta .btn { flex: 1 1 auto; }
+
+  /* Single-column grids so cards never overflow on narrow phones */
+  .projects, .skills { grid-template-columns: 1fr; }
+  .timeline { padding-left: 28px; }
+  .timeline__dot { left: -28px; }
+
+  .btn { padding: 12px 22px; }
+  .contact__socials { gap: 16px 22px; flex-wrap: wrap; }
+  .footer__inner { justify-content: center; text-align: center; }
 }
 
 @media (prefers-reduced-motion: reduce) {
