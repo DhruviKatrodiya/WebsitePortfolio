@@ -322,20 +322,23 @@ function initNav() {
 
   burger.addEventListener("click", () => { burger.classList.toggle("open"); links.classList.toggle("open"); });
   links.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => { burger.classList.remove("open"); links.classList.remove("open"); }));
-}
 
-function initTheme() {
-  const toggle = document.getElementById("themeToggle");
-  const icon = toggle.querySelector(".theme-toggle__icon");
-  if (localStorage.getItem("theme") === "light") {
-    document.documentElement.setAttribute("data-theme", "light");
-    icon.textContent = "☀️";
-  }
-  toggle.addEventListener("click", () => {
-    const isLight = document.documentElement.getAttribute("data-theme") === "light";
-    if (isLight) { document.documentElement.removeAttribute("data-theme"); icon.textContent = "🌙"; localStorage.setItem("theme", "dark"); }
-    else { document.documentElement.setAttribute("data-theme", "light"); icon.textContent = "☀️"; localStorage.setItem("theme", "light"); }
-  });
+  // Scroll-spy: underline the nav link of the section currently in view
+  const navLinkEls = Array.from(links.querySelectorAll("a"));
+  const spied = navLinkEls
+    .map((a) => document.getElementById(a.getAttribute("href").slice(1)))
+    .filter(Boolean);
+  const spy = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        navLinkEls.forEach((a) => a.classList.toggle("active", a.getAttribute("href") === "#" + id));
+      });
+    },
+    { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+  );
+  spied.forEach((sec) => spy.observe(sec));
 }
 
 /* ========================= INIT ========================= */
@@ -343,5 +346,4 @@ renderSite();
 initReveal();
 initCounters();
 initNav();
-initTheme();
 initResume();
