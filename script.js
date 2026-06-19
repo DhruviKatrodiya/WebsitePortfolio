@@ -1,3 +1,10 @@
+/* Always (re)load from the top — never restore the previous scroll position
+   or jump to a section hash left in the URL. */
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+window.scrollTo(0, 0);
+window.addEventListener("load", () => window.scrollTo(0, 0));
+
 /* =========================================================
    SINGLE SOURCE OF TRUTH
    Edit these objects to update both the site and the résumé.
