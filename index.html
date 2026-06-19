@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=22" />
 </head>
 <body>
   <!-- Decorative background -->
@@ -28,8 +28,8 @@
       <nav class="nav__links" id="navLinks">
         <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </nav>
       <div class="nav__actions">
@@ -60,7 +60,6 @@
         </div>
         <div class="hero__cta reveal">
           <a href="#projects" class="btn btn--primary">View My Work</a>
-          <button class="btn btn--ghost" id="heroResume">⬇ Download PDF</button>
         </div>
         <div class="hero__tech reveal">
           <span>C#</span><span>ASP.NET Core</span><span>Azure</span>
@@ -153,7 +152,6 @@
         </p>
         <div class="contact__actions reveal">
           <a href="mailto:hello@example.com" class="btn btn--primary" id="contactEmail">Say Hello 👋</a>
-          <button class="btn btn--ghost" id="contactResume">⬇ Download PDF Resume</button>
         </div>
         <div class="contact__socials reveal" id="socials"></div>
       </div>
@@ -176,8 +174,6 @@
           <span class="resume-modal__dot"></span> Resume Preview
         </div>
         <div class="resume-modal__actions">
-          <button class="btn btn--primary btn--sm" id="resumeDownload">⬇ Download PDF</button>
-          <button class="btn btn--ghost btn--sm" id="resumePrint">🖨 Print</button>
           <button class="resume-modal__close" data-close aria-label="Close preview">✕</button>
         </div>
       </div>
@@ -187,7 +183,6 @@
     </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" crossorigin="anonymous"></script>
-  <script src="script.js"></script>
+  <script src="script.js?v=22"></script>
 </body>
 </html>

@@ -2,12 +2,11 @@
    SINGLE SOURCE OF TRUTH
    Edit these objects to update both the site and the résumé.
    ========================================================= */
-const profile = {
+let profile = {
   name: "Dhruvi Katrodiya",
   title: "Senior Software Developer",
   location: "Ahmedabad, India",
   email: "dhruvirasadiya2211@gmail.com",
-  phone: "9274319224",
   links: {
     LinkedIn: "https://www.linkedin.com/in/dhruvi-katrodiya",
     GitHub: "https://github.com/DhruviKatrodiya",
@@ -17,7 +16,7 @@ const profile = {
 };
 
 /* Experience grouped by company (used by timeline + résumé) */
-const experience = [
+let experience = [
   {
     role: "Software Developer",
     company: "Akkomplish Consulting Services",
@@ -52,7 +51,7 @@ const experience = [
   },
 ];
 
-const projects = [
+let projects = [
   { icon: "🤝", company: "Bigscal Technologies", title: "Supplier Portal", desc: "Built and maintained RESTful Web APIs enabling seamless data exchange between suppliers and backend systems, integrated with enterprise apps to automate workflows.", tags: [".NET Core", "Web API", "Integration"] },
   { icon: "⚡", company: "Bigscal · GIFT City", title: "Utilities Management System", desc: "Enhanced power & utility services — meter management, tax invoicing, demand estimation, payment processing, role-based access control, and approval workflows.", tags: ["Workflows", "RBAC", "Payments", "Reporting"] },
   { icon: "🔥", company: "Bigscal · GIFT City", title: "Fire Safety Management System", desc: "Led the development team — built fire safety & compliance workflows, inspection scheduling and approval modules, and delivered milestones on time.", tags: ["Team Lead", "Compliance", "Scheduling"] },
@@ -61,10 +60,11 @@ const projects = [
   { icon: "💳", company: "Akkomplish", title: "Ekkaam", desc: "Enhanced Stripe payment workflows, authored a user manual with Claude AI, ran US rental-market research, and designed User/Owner/Admin prototypes in Stitch.", tags: ["Stripe", "Claude AI", "Stitch", "Research"] },
   { icon: "✉️", company: "Akkomplish", title: "Email Management System", desc: "Built APIs for Email Configuration, Project Management & Markup Setup, added validation APIs, tuned Log4Net, and handled Docker-based deployment.", tags: ["REST APIs", "Docker", "Log4Net"] },
   { icon: "🛠️", company: "Akkomplish", title: "Vendor Management", desc: "Diagnosed and resolved user registration workflow issues, managed assembly reference updates and dependency resolution for clean builds and deployments.", tags: ["Debugging", "Builds", "Dependencies"] },
-  { icon: "🧪", company: "Independent Learning", title: "Testing & Onboarding Innovation", desc: "Self-learned unit testing with Moq to improve code coverage, and independently implemented an Angular Walkthrough Wizard to improve user onboarding.", tags: ["Moq", "Unit Testing", "Angular"] },
+  { icon: "🛒", company: "Built with Claude AI", title: "Sales Application", desc: "Full-stack platform to digitize a distribution business — product catalog, real-time inventory and godown dispatch, customer management, order & payment processing, sales reports/dashboard, and secure JWT auth with email-OTP recovery. Built on ASP.NET Core (.NET 10) and Angular 22, deployed via Docker Compose.", tags: ["Claude AI", ".NET 10", "Angular 22", "SQL Server", "Docker"] },
+  { icon: "✈️", company: "Built with Claude AI", title: "Travel Management System", desc: "Full-stack tourism platform for booking and managing travel packages across India, Bhutan & Nepal — customers browse tours, book, pay, and track travel history, while admins manage tours, itineraries, logistics, finances, and reviews. Secure JWT auth with a flexible role/permission framework and real-time reporting. Built on ASP.NET Core Web API, Angular, and SQL Server.", tags: ["Claude AI", "ASP.NET Core", "Angular", "SQL Server", "JWT"] },
 ];
 
-const skillCategories = [
+let skillCategories = [
   { icon: "⚙️", title: "Backend", items: ["C#", "ASP.NET Core Web API", "Azure Functions", "Entity Framework", "REST APIs", "SQL Server"] },
   { icon: "🎨", title: "Frontend", items: ["Angular", "HTML5", "CSS3", "JavaScript", "TypeScript"] },
   { icon: "☁️", title: "Cloud & DevOps", items: ["Microsoft Azure", "Azure Functions", "Docker", "CI/CD Concepts"] },
@@ -73,7 +73,7 @@ const skillCategories = [
   { icon: "🧰", title: "Tools & Platforms", items: ["Git", "GitHub", "Azure DevOps", "Postman", "Log4Net"] },
 ];
 
-const newSkills = [
+let newSkills = [
   { icon: "📦", label: "Docker" },
   { icon: "🤖", label: "Claude AI" },
   { icon: "🎨", label: "Stitch (Google)" },
@@ -81,10 +81,50 @@ const newSkills = [
   { icon: "🧭", label: "Angular Walkthrough Wizard" },
 ];
 
-const education = [
+let education = [
   { degree: "M.Sc. — Information & Communication Technology", school: "Veer Narmad South Gujarat University, Surat", period: "Sep 2021 – Jul 2023" },
   { degree: "Bachelor of Computer Application", school: "Veer Narmad South Gujarat University, Surat", period: "Aug 2018 – Apr 2021" },
 ];
+
+/* =========================================================
+   REACTIVITY
+   Any add / edit / delete on the data above re-renders the site
+   AND the résumé preview immediately — no page refresh needed.
+   Change data live via window.resumeData, e.g.:
+     resumeData.projects.push({ icon: "🌟", company: "…", title: "…", desc: "…", tags: [] });
+     resumeData.profile.phone = "1234567890";
+     resumeData.skillCategories[0].items.push("GraphQL");
+   ========================================================= */
+let _rerenderQueued = false;
+function scheduleRerender() {
+  if (_rerenderQueued) return;
+  _rerenderQueued = true;
+  Promise.resolve().then(() => {
+    _rerenderQueued = false;
+    renderSite();
+    initReveal();
+    buildResume();
+  });
+}
+
+function reactive(target) {
+  if (target === null || typeof target !== "object") return target;
+  Object.keys(target).forEach((k) => { target[k] = reactive(target[k]); });
+  return new Proxy(target, {
+    set(obj, prop, value) { obj[prop] = reactive(value); scheduleRerender(); return true; },
+    deleteProperty(obj, prop) { delete obj[prop]; scheduleRerender(); return true; },
+  });
+}
+
+profile = reactive(profile);
+experience = reactive(experience);
+projects = reactive(projects);
+skillCategories = reactive(skillCategories);
+newSkills = reactive(newSkills);
+education = reactive(education);
+
+// Single handle for live edits (console / future editor UI).
+window.resumeData = { profile, experience, projects, skillCategories, newSkills, education };
 
 /* ========================= RENDER SITE ========================= */
 function escapeAttr(s) { return String(s).replace(/"/g, "&quot;"); }
@@ -151,7 +191,6 @@ function buildResume() {
   const contactBits = [
     profile.location && `📍 ${profile.location}`,
     profile.email && `✉️ ${profile.email}`,
-    profile.phone && `📞 ${profile.phone}`,
     ...Object.entries(profile.links).map(([k, v]) => (v && v !== "#" ? `🔗 ${k}: ${v.replace(/^https?:\/\//, "")}` : `🔗 ${k}`)),
   ].filter(Boolean);
 
@@ -170,6 +209,18 @@ function buildResume() {
 
   const skillsHtml = skillCategories
     .map((c) => `<div class="resume__skill-row"><b>${c.title}:</b> ${c.items.join(", ")}</div>`)
+    .join("");
+
+  const projectsHtml = projects
+    .map(
+      (p) => `
+      <div class="resume__job">
+        <div class="resume__job-head">
+          <div><span class="resume__job-title">${p.title}</span>${p.company ? ` · <span class="resume__job-co">${p.company}</span>` : ""}</div>
+        </div>
+        <p class="resume__summary" style="margin-top:4px;">${p.desc}</p>
+      </div>`
+    )
     .join("");
 
   const eduHtml = education
@@ -204,6 +255,11 @@ function buildResume() {
       ${expHtml}
     </div>
 
+    <div class="resume__section">
+      <div class="resume__h">Key Projects</div>
+      ${projectsHtml}
+    </div>
+
     <div class="resume__two">
       <div class="resume__section">
         <div class="resume__h">Education</div>
@@ -219,14 +275,12 @@ function buildResume() {
   `;
 }
 
-/* ========================= RÉSUMÉ MODAL + PDF ========================= */
+/* ========================= RÉSUMÉ PREVIEW MODAL + PDF ========================= */
 function initResume() {
   const modal = document.getElementById("resumeModal");
-  const paper = document.getElementById("resumePaper");
-  let built = false;
 
   const open = () => {
-    if (!built) { buildResume(); built = true; }
+    buildResume(); // always render from the current data
     modal.classList.add("open");
     modal.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
@@ -237,50 +291,23 @@ function initResume() {
     document.body.style.overflow = "";
   };
 
-  ["navResume", "heroResume", "contactResume"].forEach((id) => {
+  ["navResume"].forEach((id) => {
     const el = document.getElementById(id);
     if (el) el.addEventListener("click", open);
   });
   modal.querySelectorAll("[data-close]").forEach((el) => el.addEventListener("click", close));
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && modal.classList.contains("open")) close(); });
-
-  const filename = `${profile.name.replace(/\s+/g, "_")}_Resume.pdf`;
-
-  document.getElementById("resumeDownload").addEventListener("click", function () {
-    const btn = this;
-    if (typeof html2pdf === "undefined") {
-      // CDN unavailable (e.g. offline) → fall back to the browser's print-to-PDF
-      window.print();
-      return;
-    }
-    const original = btn.textContent;
-    btn.textContent = "Generating…";
-    btn.disabled = true;
-    html2pdf()
-      .set({
-        margin: 0,
-        filename,
-        image: { type: "jpeg", quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff", windowWidth: 794 },
-        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-        pagebreak: { mode: ["css", "legacy"] },
-      })
-      .from(paper)
-      .save()
-      .then(() => { btn.textContent = original; btn.disabled = false; })
-      .catch(() => { btn.textContent = original; btn.disabled = false; window.print(); });
-  });
-
-  document.getElementById("resumePrint").addEventListener("click", () => window.print());
 }
 
 /* ========================= INTERACTIONS ========================= */
+let _revealObserver;
 function initReveal() {
-  const io = new IntersectionObserver(
-    (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); } }),
+  if (_revealObserver) _revealObserver.disconnect(); // re-runnable after a re-render
+  _revealObserver = new IntersectionObserver(
+    (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("visible"); _revealObserver.unobserve(e.target); } }),
     { threshold: 0.12 }
   );
-  document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+  document.querySelectorAll(".reveal").forEach((el) => _revealObserver.observe(el));
 }
 
 function initCounters() {
